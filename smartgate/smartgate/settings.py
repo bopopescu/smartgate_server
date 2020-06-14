@@ -25,7 +25,7 @@ SECRET_KEY = 'q2)aq62^)wnxw-%6or#&bzf7!1zgtf45t4-=izq^w3n*rc%jfv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'identification.apps.IdentificationConfig',
+    'hotelreserv.apps.HotelreservConfig',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +113,10 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# Setiing USE_TZ false to use model to time_zone Asia/seoul
+# If you want to use only template and forms to Asia/Seoul, change USE_TZ = true
 
 
 # Static files (CSS, JavaScript, Images)

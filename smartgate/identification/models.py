@@ -15,7 +15,9 @@ class Booklist(models.Model):
     btel = models.CharField(db_column='BTel', max_length=13)  # Field name made lowercase.
     bcin = models.DateTimeField(db_column='BCin', blank=True, null=True)  # Field name made lowercase.
     bcout = models.DateTimeField(db_column='BCout', blank=True, null=True)  # Field name made lowercase.
-
+    bstel = models.CharField(db_column='BSTel', max_length=13, blank=True, null=True)  # Field name made lowercase.
+    bttel = models.CharField(db_column='BTTel', max_length=13, blank=True, null=True)  # Field name made lowercase.
+    bftel = models.CharField(db_column='BFTel', max_length=13, blank=True, null=True)  # Field name made lowercase.
 
     bid.verbose_name = "예약자 아이디"
     bnum.verbose_name = "방번호"
@@ -23,6 +25,9 @@ class Booklist(models.Model):
     btel.verbose_name = "예약자 번호"
     bcin.verbose_name = "체크인"
     bcout.verbose_name = "체크아웃"
+    bstel.verbose_name = "동반예약자(2인)"
+    bttel.verbose_name = "동반예약자(3인)"
+    bftel.verbose_name = "동반예약자(4인)"
 
     class Meta:
         managed = False
@@ -51,7 +56,6 @@ class Roominfo(models.Model):
         db_table = 'RoomInfo'
 
 
-
 class Userinfo(models.Model):
     uid = models.CharField(db_column='UID', primary_key=True, max_length=20)  # Field name made lowercase.
     upw = models.CharField(db_column='UPW', max_length=30)  # Field name made lowercase.
@@ -67,7 +71,7 @@ class Userinfo(models.Model):
 
     def __str__(self):
         return self.uid
-    
+
     class Meta:
         managed = False
         db_table = 'UserInfo'

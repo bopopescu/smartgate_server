@@ -39,9 +39,9 @@ class RoomInfoAdmin(admin.ModelAdmin):
         room_checkin.short_description = '선택한 방을 체크인'
 
 class BookInfoAdmin(admin.ModelAdmin):
-        list_display = ['bid','bnum','bdate','btel', 'bcin', 'bcout']
+        list_display = ['bid','bnum','bdate','btel', 'bcin', 'bcout', 'bstel', 'bttel', 'bftel']
         search_fields = ['bnum', 'btel']
-
+        list_filter = ('bnum','bcin',)
 
 admin.site.site_header = '호텔 관리'
 admin.site.register(TestUserInfo, TestUserInfoAdmin)
